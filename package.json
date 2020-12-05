@@ -1,0 +1,25 @@
+{
+  "name": "SocialMedia",
+  "version": "1.0.0",
+  "description": "Created following FreeCodeCamp tutorial https://www.youtube.com/watch?v=n1mdAPFq2Os",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VictoriaArg/SocialMedia.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VictoriaArg/SocialMedia/issues"
+  },
+  "homepage": "https://github.com/VictoriaArg/SocialMedia#readme",
+  "dependencies": {
+    "apollo-server": "^2.19.0",
+    "graphql": "^15.4.0",
+    "mongoose": "^5.11.4"
+  }
+}
