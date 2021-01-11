@@ -13,11 +13,11 @@ module.exports = gql`
         id: ID!,
         createdAt: String!,
         username: String!,
-        body: Strign!
+        body: String!
     }
-    type Like{
+    type Likes{
         id: ID!,
-        createdAt: Strign!,
+        createdAt: String!,
         username: String!
     }
     type User{
@@ -42,5 +42,8 @@ module.exports = gql`
         login(username: String!, password: String!): User!
         createPost(body: String!): Post!
         deletePost(postId: ID!): String!
+        createComment(postId: String!, body: String!): Post!
+        deleteComment(postId: String!, commentId: String!): Post!
+        likePost(postId: String!): Post!
     }
 `
