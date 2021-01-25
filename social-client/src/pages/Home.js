@@ -1,10 +1,20 @@
 import React from 'react';
 import { useQuery } from "@apollo/react-hooks";
-import gql from "graphql-tag";
+
+import { FETCH_POSTS_QUERY } from '../util/graphql.js';
 
 
 function Home () {
 
+    const { data, loading, error } = useQuery(FETCH_POSTS_QUERY);
+    if(data) {
+      console.log(data);
+      const { getPosts: posts } = data;
+    }
+    if(error) {
+      console.log(error);
+      return "error"; // blocks rendering
+    }
 
     return (
         <div>       
@@ -15,26 +25,5 @@ function Home () {
     )
 }
 
-const FETCH_POSTS_QUERY =  gql`
-{
-  getPosts {
-    id
-    body
-    createdAt
-    username
-    likeCount
-    likes {
-      username
-    }
-    commentCount
-    comments {
-      id
-      username
-      createdAt
-      body
-    }
-  }
-}
-`;
 
 export default Home;

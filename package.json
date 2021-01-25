@@ -21,6 +21,7 @@
   "homepage": "https://github.com/VictoriaArg/SocialMedia#readme",
   "dependencies": {
     "@apollo/react-hooks": "^4.0.0",
+    "apollo-boost": "^0.4.9",
     "apollo-cache-inmemory": "^1.6.6",
     "apollo-link-context": "^1.0.20",
     "apollo-link-http": "^1.5.17",
