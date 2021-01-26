@@ -6,6 +6,7 @@ import { Card, Icon, Label, Image, Button } from 'semantic-ui-react'
 
 import { AuthContext } from '../context/auth'
 import LikeButton from './LikeButton'
+import DeleteButton from './DeleteButton';
 
 function PostCard({ post: { body, createdAt, id, username, likeCount, commentCount, likes }}) {
     
@@ -31,15 +32,7 @@ function PostCard({ post: { body, createdAt, id, username, likeCount, commentCou
                 </Button>
                 <Label basic color='blue' pointing='left'> {commentCount} </Label>
             </Button>
-            { user && user.username === username && (
-                <Button 
-                    as='div' 
-                    color='red' 
-                    onClick={console.log('delete post')} 
-                    floated='right'>
-                <Icon name='trash' style={{ margin: 0}} />
-                </Button> 
-            )}
+            { user && user.username === username && <DeleteButton postId={id} />}
              </Card.Content>
        </Card>
     )
