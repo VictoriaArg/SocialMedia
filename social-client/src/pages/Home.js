@@ -1,12 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useQuery } from "@apollo/react-hooks";
-import { Grid, Image } from 'semantic-ui-react'
+import { Grid, Transition } from 'semantic-ui-react'
 
 import { FETCH_POSTS_QUERY } from '../util/graphql.js';
 import PostCard from '../components/PostCard';
 
 import { AuthContext } from '../context/auth'
-import AuthRoute from '../util/AuthRoute.js';
 
 import PostForm from '../components/PostForm';
 
@@ -42,11 +41,13 @@ function Home () {
             {loading ? (
             <h1>Loading</h1>
             ) : (
-                posts && posts.map(post => (
+                <Transition.Group>
+                    {posts && posts.map(post => (
                     <Grid.Column key={post.id} style={{marginBottom: 20}}>
                         <PostCard post={post} />
                     </Grid.Column>
-                ))
+                ))}
+                </Transition.Group>
             )}
         </Grid.Row>
     </ Grid>

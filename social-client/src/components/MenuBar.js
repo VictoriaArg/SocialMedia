@@ -2,7 +2,7 @@ import { React, useState, useContext } from 'react'
 import { Menu } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
-import { AuthContext, AuthContextex } from '../context/auth'
+import { AuthContext } from '../context/auth'
 
 function MenuBar() {
   const { user, logout } = useContext(AuthContext)
