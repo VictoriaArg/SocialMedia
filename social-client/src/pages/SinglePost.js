@@ -24,29 +24,18 @@ function SinglePost(props) {
 
   const [comment, setComment] = useState('');
 
-  const {
-    data: { getPost }, loading, error
-  } = useQuery(FETCH_POST_QUERY, {
-    variables: {
-      postId
-    }
+  const { loading, error, data } = useQuery(FETCH_POST_QUERY, {
+    variables: { postId },
   });
-
-  if(error) {
+  if (loading) return null;
+  if (error) {
     console.log(error);
-    return "error"; // blocks rendering
+    return `Error! ${error}`
   }
+  if (data) console.log(data);
 
-  /* const [submitComment] = useMutation(SUBMIT_COMMENT_MUTATION, {
-    update() {
-      setComment('');
-      commentInputRef.current.blur();
-    },
-    variables: {
-      postId,
-      body: comment
-    }
-  }); */
+  const getPost = data;
+  const { getPost : {body, createdAt, id, username, likeCount, commentCount, likes}} = data;
 
   function deletePostCallback() {
     props.history.push('/');
@@ -56,17 +45,6 @@ function SinglePost(props) {
   if (!getPost) {
     postMarkup = <p>Loading post..</p>;
   } else {
-    const {
-      id,
-      body,
-      createdAt,
-      username,
-      comments,
-      likes,
-      likeCount,
-      commentCount
-    } = getPost;
-
     postMarkup = (
       <Grid>
         <Grid.Row>
@@ -86,24 +64,7 @@ function SinglePost(props) {
               </Card.Content>
               <hr />
               <Card.Content extra>
-                <LikeButton user={user} post={{ id, likeCount, likes }} />
-                {/* <MyPopup content="Comment on post">
-                  <Button
-                    as="div"
-                    labelPosition="right"
-                    onClick={() => console.log('Comment on post')}
-                  >
-                    <Button basic color="blue">
-                      <Icon name="comments" />
-                    </Button>
-                    <Label basic color="blue" pointing="left">
-                      {commentCount}
-                    </Label>
-                  </Button>
-                </MyPopup> */}
-                {user && user.username === username && (
-                  <DeleteButton postId={id} callback={deletePostCallback} />
-                )}
+                { <LikeButton user={user} post={{id, likeCount, likes}} />}
               </Card.Content>
             </Card>
             {user && (
@@ -133,18 +94,6 @@ function SinglePost(props) {
                 </Card.Content>
               </Card>
             )}
-            {comments.map((comment) => (
-              <Card fluid key={comment.id}>
-                <Card.Content>
-                  {user && user.username === comment.username && (
-                    <DeleteButton postId={id} commentId={comment.id} />
-                  )}
-                  <Card.Header>{comment.username}</Card.Header>
-                  <Card.Meta>{moment(comment.createdAt).fromNow()}</Card.Meta>
-                  <Card.Description>{comment.body}</Card.Description>
-                </Card.Content>
-              </Card>
-            ))}
           </Grid.Column>
         </Grid.Row>
       </Grid>
@@ -153,20 +102,6 @@ function SinglePost(props) {
   return postMarkup;
 }
 
-const SUBMIT_COMMENT_MUTATION = gql`
-  mutation($postId: String!, $body: String!) {
-    createComment(postId: $postId, body: $body) {
-      id
-      comments {
-        id
-        body
-        createdAt
-        username
-      }
-      commentCount
-    }
-  }
-`;
 
 const FETCH_POST_QUERY = gql`
   query getPost($postId: ID!) {
@@ -182,8 +117,8 @@ const FETCH_POST_QUERY = gql`
       commentCount
       comments {
         id
-        username
         createdAt
+        username
         body
       }
     }
