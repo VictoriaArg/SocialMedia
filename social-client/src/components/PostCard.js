@@ -12,6 +12,7 @@ function PostCard({ post: { body, createdAt, id, username, likeCount, commentCou
     
     const { user } = useContext(AuthContext)
 
+
     return(
        <Card fluid>
            <Card.Content>
@@ -26,11 +27,14 @@ function PostCard({ post: { body, createdAt, id, username, likeCount, commentCou
             </Card.Content>
             <Card.Content extra>
             <LikeButton user={user} post={{ id, likes, likeCount }}/>
-            <Button labelPosition='right' as={Link} to={`/posts/${id}`}>
+            <Button 
+                labelPosition='right' 
+                as={Link} 
+                to={`/posts/${id}`}>
             <Button color='blue' basic>
                 <Icon name='comments' />
                 </Button>
-                <Label basic color='blue' pointing='left'> {commentCount} </Label>
+                <Label basic color='blue' pointing='left' margin='0'> {commentCount} </Label>
             </Button>
             { user && user.username === username && <DeleteButton postId={id} />}
              </Card.Content>

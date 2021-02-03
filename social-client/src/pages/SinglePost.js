@@ -64,7 +64,18 @@ function SinglePost(props) {
               </Card.Content>
               <hr />
               <Card.Content extra>
-                { <LikeButton user={user} post={{id, likeCount, likes}} />}
+                <LikeButton user={user} post={{id, likeCount, likes}} />
+                <Button 
+                  as='div'
+                  labelPosition='rigth'
+                  onClick={() => console.log('coment')}
+                  >
+                <Button color='blue' basic>
+                <Icon name='comments' />
+                </Button>
+                <Label basic color='blue' pointing='left'> {commentCount} </Label>
+                </Button>
+                { user && user.username === username && <DeleteButton postId={id} callback={deletePostCallback}/>}
               </Card.Content>
             </Card>
             {user && (
