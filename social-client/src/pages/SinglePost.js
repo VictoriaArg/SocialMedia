@@ -25,6 +25,16 @@ function SinglePost(props) {
 
   const [comment, setComment] = useState('');
 
+  const [submitComment] = useMutation(SUBMIT_COMMENT_MUTATION, {
+    update(){
+      setComment('')
+    },
+    variables: {
+      postId,
+      body: comment
+    }
+  });
+
   const { loading, error, data } = useQuery(FETCH_POST_QUERY, {
     variables: { postId },
   });
@@ -37,6 +47,7 @@ function SinglePost(props) {
 
   const getPost = data;
   const { getPost : {body, createdAt, id, username, likeCount, commentCount, comments, likes}} = data;
+
 
   function deletePostCallback() {
     props.history.push('/');
@@ -97,7 +108,7 @@ function SinglePost(props) {
                         type="submit"
                         className="ui button teal"
                         disabled={comment.trim() === ''}
-                        onClick={console.log('comentario')}
+                        onClick={submitComment}
                       >
                         Submit
                       </button>
@@ -126,7 +137,6 @@ function SinglePost(props) {
   return postMarkup;
 }
 
-
 const FETCH_POST_QUERY = gql`
   query getPost($postId: ID!) {
     getPost(postId: $postId) {
@@ -148,5 +158,17 @@ const FETCH_POST_QUERY = gql`
     }
   }
 `;
+
+const SUBMIT_COMMENT_MUTATION = gql`
+mutation($postId: String!, $body: String!){
+  createComment(postId: $postId, body: $body){
+    id
+    comments{
+      id body createdAt username
+    }
+    commentCount
+  }
+}
+`
 
 export default SinglePost;
