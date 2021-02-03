@@ -5,25 +5,35 @@ import { FETCH_POSTS_QUERY } from '../util/graphql';
 
 import { Icon, Button, Confirm } from 'semantic-ui-react'
 
-function DeleteButton({ postId, callback }){
+function DeleteButton({ postId, commentId, callback }){
     const [confirmOpen, setConfirmOpen] = useState(false);
 
+    const [deleteComment] = useMutation(DELETE_COMMENT_MUTATION, {
+        variables: {
+            postId,
+            commentId
+        },
+        onError(err) {
+            return err;
+          }
+    });
+
     const [deletePost] = useMutation(DELETE_POST_MUTATION, {
+        variables: { 
+            postId
+        },
         update(proxy) {
             setConfirmOpen(false);
-            const data = proxy.readQuery({
-                query: FETCH_POSTS_QUERY
-            });
-            data.getPosts = data.getPosts.filter(p => p.id !== postId)
-            proxy.writeQuery({ query: FETCH_POSTS_QUERY, data})
-            if(callback) callback();
-            if (window.location.href === 'http://localhost:3000/') {
-                window.location.reload();
-              }
-        },
-        variables: { 
-            postId 
-        } 
+                const data = proxy.readQuery({
+                    query: FETCH_POSTS_QUERY
+                });
+                data.getPosts = data.getPosts.filter(p => p.id !== postId)
+                proxy.writeQuery({ query: FETCH_POSTS_QUERY, data})
+                if(callback) callback();
+                if (window.location.href === 'http://localhost:3000/') {
+                    window.location.reload();
+                  }
+        }
     })
 
     return (
@@ -38,7 +48,7 @@ function DeleteButton({ postId, callback }){
     <Confirm
         open={confirmOpen}
         onCancel={() => setConfirmOpen(false)}
-        onConfirm={deletePost}
+        onConfirm={commentId ? deleteComment : deletePost}
         />
         </>
     )
@@ -49,5 +59,18 @@ const DELETE_POST_MUTATION = gql`
         deletePost(postId: $postId)
     }
 `
+
+const DELETE_COMMENT_MUTATION = gql`
+    mutation deleteComment($postId: String!, $commentId: String!){
+        deleteComment(postId: $postId, commentId: $commentId) {
+            id
+            comments {
+                id username createdAt body
+            }
+            commentCount
+        }
+    }
+
+    `
 
 export default DeleteButton

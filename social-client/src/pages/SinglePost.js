@@ -9,7 +9,8 @@ import {
   Grid,
   Image,
   Icon,
-  Label
+  Label,
+  CardDescription
 } from 'semantic-ui-react';
 
 import { AuthContext } from '../context/auth';
@@ -35,7 +36,7 @@ function SinglePost(props) {
   if (data) console.log(data);
 
   const getPost = data;
-  const { getPost : {body, createdAt, id, username, likeCount, commentCount, likes}} = data;
+  const { getPost : {body, createdAt, id, username, likeCount, commentCount, comments, likes}} = data;
 
   function deletePostCallback() {
     props.history.push('/');
@@ -105,6 +106,18 @@ function SinglePost(props) {
                 </Card.Content>
               </Card>
             )}
+            {comments.map(comment => (
+              <Card fluid key={comment.id}>
+                <Card.Content>
+                  {user && user.username === comment.username && (
+                    <DeleteButton postId={id} commentId={comment.id} />
+                  )}
+                  <Card.Header>{comment.username}</Card.Header>
+                  <Card.Meta>{moment(comment.createdAt).fromNow()}</Card.Meta>
+                  <CardDescription>{comment.body}</CardDescription>
+                </Card.Content>
+              </Card>
+            ))}
           </Grid.Column>
         </Grid.Row>
       </Grid>
