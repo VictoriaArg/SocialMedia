@@ -30,9 +30,8 @@ function DeleteButton({ postId, commentId, callback }){
                 data.getPosts = data.getPosts.filter(p => p.id !== postId)
                 proxy.writeQuery({ query: FETCH_POSTS_QUERY, data})
                 if(callback) callback();
-                if (window.location.href === 'http://localhost:3000/') {
-                    window.location.reload();
-                  }
+                window.location.reload();
+                  
         }
     })
 
