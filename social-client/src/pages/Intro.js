@@ -9,28 +9,30 @@ import Footer from '../components/Footer'
 function Intro () {
 
  return (
+    <div style={{display:"flex", flexDirection:"column"}}>
     <CSSTransitionGroup
       transitionName="intro"
       transitionAppear={true}
       transitionAppearTimeout={500}
       transitionEnter={false}
-      transitionLeave={true}>
+      transitionLeave={true}
+      >
     <div className='intro'>
-     <div className='description'>
+     <div className='intro-description'>
         <div>
-        <h1>Hi, welcome to Parrot</h1>
+        <h1>Hi, welcome to <h1 style={{color:"rgb(246, 196, 30)", fontSize:"4rem"}}>Parrot</h1></h1>
         <h5>An app created by <a className='vic' href='https://www.linkedin.com/in/argasvic/'>Victoria Argañaras</a></h5>
         </div>
         <div>
             <h2>What is Parrot for?</h2>
-            <h5>Parrot is an app for sharing your thoughts, ideas, or memes with your closest family.<br /><br />
+            <h5>Parrot is an app for sharing your thoughts, ideas, or memes with your closest family.<br />
                 Make a group, add members, share posts. <br /> Stay connected with your beloved ones.
             </h5>
         </div>
         <div className="intro-button">
             <Button 
-            animated primary 
-            size='massive'
+            animated primary
+            size="huge"
             as={Link}
              to='/home'>
                 <Button.Content visible>Start</Button.Content>
@@ -44,8 +46,9 @@ function Intro () {
             <img src={Parrot} alt='Logo Parrot' />
     </div>
     </div>
-    {/* <Footer /> */}
+    <Footer />
     </ CSSTransitionGroup>
+    </div>
     )
 } 
 

@@ -19,11 +19,13 @@
     position: absolute;
     left: 0;
     width: 100vw;
+    height: 85vh;
+    min-height: 400px;
     background-color: teal;
     display: flex;
     flex-direction: row;
     padding: 4%;
-    padding-left: 15%;
+    padding-left: 10vw;
     color:white;
 }
 
@@ -36,25 +38,27 @@
     transition: opacity .5s ease-in;
   }
 
-.description {
+.intro-description {
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 55%;
+    height: 100%;
 }
 
-.description h1 {
-    font-size: 3rem;
+.intro-description h1 {
+    font-size: 2vw;
 }
 
-.description h5 {
+.intro-description h5 {
         width: 70%;
-        font-size: 1.2rem;
+        font-size: 1.5vw;
         font-weight: 200;
         margin-top: 1vw;
 }
 
-.description h2 {
+.intro-description h2 {
     margin-top: 2vw;
+    font-size: 2vw;
 }
 
 .vic{
@@ -70,7 +74,7 @@
 }
 
 .intro-button{
-    margin-top: 3vw;
+    margin-top: 2vw;
 }
 
 .parrot-background {
@@ -87,4 +91,60 @@
     padding: 5vw;
 }
 
+.footer-big {
+    display: none;
+    background-color: rgb(246, 196, 30);
+    position: absolute;
+    left: 0;
+    margin-top: 85vh;
+    width: 100vw;
+    padding: 1.5%;
+    padding-left: 9.5%;
+    display: flex;
+    flex-direction: row;
+}
 
+.tech{
+    margin-right: 15%;
+}
+
+.tech h3 {
+    padding-left: 7%;
+} 
+
+.tech-col{
+    margin-top: 1vw;
+}
+
+.tech-col a {
+    padding-left: 1vw;
+}
+
+.tech-col img {
+    background-color: white;
+    border-radius: 50%;
+    padding: 3%;
+}
+
+.tech-col img:hover {
+    transform: scale(1.2, 1.2);
+}
+
+.feat {
+    margin-right: 2%;
+}
+.feat h3 {
+    padding-left: 12%;
+}
+
+.feat ul li:hover {
+    color: teal;
+}
+
+.coming h3 {
+    padding-left: 7.5%;
+}
+
+.coming ul li:hover {
+    color: teal;
+}
