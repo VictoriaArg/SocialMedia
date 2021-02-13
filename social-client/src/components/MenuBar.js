@@ -33,7 +33,7 @@ function MenuBar() {
           active={activeItem === 'home'}
           onClick={handleItemClick}
           as={Link}
-          to='/'
+          to='/home'
         />
         <Menu.Item
           name='login'

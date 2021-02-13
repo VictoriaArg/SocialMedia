@@ -8,6 +8,7 @@ import './App.css'
 import { AuthProvider } from './context/auth'
 import AuthRoute from './util/AuthRoute'
 
+import Intro from './pages/Intro'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import Register from './pages/Register'
@@ -19,8 +20,9 @@ function App() {
     <AuthProvider>
       <Router>
       <Container>
-      <MenuBar />
-      <Route exact path='/' component={Home} />
+      <Route path={['/home', '/login', '/register', '/posts/:postId']} component={MenuBar} />
+      <Route exact path='/intro' component={Intro} />
+      <Route exact path='/home' component={Home} />
       <AuthRoute exact path='/login' component={Login} />
       <AuthRoute exact path='/register' component={Register} />
       <Route exact path='/posts/:postId' component={SinglePost} />
