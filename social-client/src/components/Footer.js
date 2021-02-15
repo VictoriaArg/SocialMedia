@@ -58,6 +58,7 @@ function Footer () {
             <li>Creating family groups, modifying members</li>
             <li>Private posts for group members</li>
             <li>Dark mode</li>
+            <li>More design ('cause it's never enough)</li>
             <li>Making everything ultra-responsive</li>
         </ul>
         </div>

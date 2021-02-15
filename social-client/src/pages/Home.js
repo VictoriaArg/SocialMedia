@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useQuery } from "@apollo/react-hooks";
-import { Grid, Transition } from 'semantic-ui-react'
+import { Grid, Transition } from 'semantic-ui-react';
+import { CSSTransitionGroup } from 'react-transition-group'
 
 import { FETCH_POSTS_QUERY } from '../util/graphql.js';
 import PostCard from '../components/PostCard';
@@ -27,7 +28,13 @@ function Home () {
     }
 
     return (
-              
+    <CSSTransitionGroup
+    transitionName="intro"
+    transitionAppear={true}
+    transitionAppearTimeout={500}
+    transitionEnter={false}
+    transitionLeave={true}
+    >  
     <Grid columns={3} divided>
         <Grid.Row className='page-title'>
             <h1>Recent Posts</h1>
@@ -51,7 +58,7 @@ function Home () {
             )}
         </Grid.Row>
     </ Grid>
-        
+    </CSSTransitionGroup>
     )
 }
 

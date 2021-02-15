@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Button, Form } from 'semantic-ui-react';
 import { useMutation } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
+import { CSSTransitionGroup } from 'react-transition-group'
 
 import { AuthContext } from '../context/auth';
 import { useForm } from '../util/hooks';
@@ -33,6 +34,13 @@ function Register(props) {
   }
 
   return (
+    <CSSTransitionGroup
+    transitionName="intro"
+    transitionAppear={true}
+    transitionAppearTimeout={500}
+    transitionEnter={false}
+    transitionLeave={true}
+    >
     <div className="form-container">
       <Form onSubmit={onSubmit} noValidate className={loading ? 'loading' : ''}>
         <h1>Register</h1>
@@ -86,6 +94,7 @@ function Register(props) {
         </div>
       )}
     </div>
+    </CSSTransitionGroup>
   );
 }
 
