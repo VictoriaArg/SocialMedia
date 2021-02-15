@@ -21,7 +21,7 @@ function App() {
       <Router>
       <Container>
       <Route path={['/home', '/login', '/register', '/posts/:postId']} component={MenuBar} />
-      <Route exact path='/intro' component={Intro} />
+      <Route exact path='/' component={Intro} />
       <Route exact path='/home' component={Home} />
       <AuthRoute exact path='/login' component={Login} />
       <AuthRoute exact path='/register' component={Register} />

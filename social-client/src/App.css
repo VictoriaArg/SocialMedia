@@ -127,6 +127,7 @@
 }
 
 .tech-col img:hover {
+    transition: 0.35s;
     transform: scale(1.2, 1.2);
 }
 

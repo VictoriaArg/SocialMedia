@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { useQuery } from "@apollo/react-hooks";
+import { useQuery } from "@apollo/client";
 import { Grid, Transition } from 'semantic-ui-react';
-import { CSSTransitionGroup } from 'react-transition-group'
+import { TransitionGroup } from 'react-transition-group';
 
 import { FETCH_POSTS_QUERY } from '../util/graphql.js';
 import PostCard from '../components/PostCard';
@@ -28,7 +28,7 @@ function Home () {
     }
 
     return (
-    <CSSTransitionGroup
+    <TransitionGroup
     transitionName="intro"
     transitionAppear={true}
     transitionAppearTimeout={500}
@@ -58,7 +58,7 @@ function Home () {
             )}
         </Grid.Row>
     </ Grid>
-    </CSSTransitionGroup>
+    </TransitionGroup>
     )
 }
 

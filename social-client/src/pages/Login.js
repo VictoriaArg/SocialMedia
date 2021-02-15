@@ -1,8 +1,8 @@
 import React, { useContext, useState } from 'react';
 import { Button, Form } from 'semantic-ui-react';
-import { useMutation } from '@apollo/react-hooks';
+import { useMutation } from '@apollo/client';
 import gql from 'graphql-tag';
-import { CSSTransitionGroup } from 'react-transition-group'
+import { TransitionGroup } from 'react-transition-group';
 
 import { AuthContext } from '../context/auth';
 import { useForm } from '../util/hooks';
@@ -32,7 +32,7 @@ function Login(props) {
   }
 
   return (
-    <CSSTransitionGroup
+    <TransitionGroup
     transitionName="intro"
     transitionAppear={true}
     transitionAppearTimeout={500}
@@ -83,7 +83,7 @@ function Login(props) {
         </div>
       )}
     </div>
-    </CSSTransitionGroup>
+    </TransitionGroup>
   );
 }
 

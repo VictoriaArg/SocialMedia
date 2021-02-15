@@ -1,16 +1,17 @@
 import React from 'react';
 import { Button, Icon } from 'semantic-ui-react'
 import Parrot from '../assets/Parrot.svg'
-import { CSSTransitionGroup } from 'react-transition-group'
+import { TransitionGroup } from 'react-transition-group';
 import { Link } from 'react-router-dom'
 
 import Footer from '../components/Footer'
+
 
 function Intro () {
 
  return (
     <div style={{display:"flex", flexDirection:"column"}}>
-    <CSSTransitionGroup
+    <TransitionGroup
       transitionName="intro"
       transitionAppear={true}
       transitionAppearTimeout={500}
@@ -47,7 +48,7 @@ function Intro () {
     </div>
     </div>
     <Footer />
-    </ CSSTransitionGroup>
+    </ TransitionGroup>
     </div>
     )
 } 
