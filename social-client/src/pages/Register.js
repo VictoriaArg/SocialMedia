@@ -35,7 +35,7 @@ function Register(props) {
 
   return (
     <TransitionGroup>
-    <div className="form-container">
+    <div className="form-container" style={{marginTop:"5vh"}}>
       <Form onSubmit={onSubmit} noValidate className={loading ? 'loading' : ''}>
         <h1>Register</h1>
         <Form.Input

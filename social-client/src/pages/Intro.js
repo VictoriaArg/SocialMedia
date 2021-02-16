@@ -10,7 +10,7 @@ import Footer from '../components/Footer'
 function Intro () {
 
  return (
-    <div style={{display:"flex", flexDirection:"column"}}>
+    <div style={{display:"flex", flexDirection:"column"}} >
     <TransitionGroup>
     <div className='intro'>
      <div className='intro-description'>

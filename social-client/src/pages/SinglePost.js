@@ -13,6 +13,7 @@ import {
   CardDescription
 } from 'semantic-ui-react';
 
+import parrotIcon from '../assets/Parrot.svg'
 import { AuthContext } from '../context/auth';
 import LikeButton from '../components/LikeButton';
 import DeleteButton from '../components/DeleteButton';
@@ -59,11 +60,11 @@ function SinglePost(props) {
     postMarkup = <p>Loading post..</p>;
   } else {
     postMarkup = (
-      <Grid>
+      <Grid style={{marginTop:"5vh"}}>
         <Grid.Row>
           <Grid.Column width={2}>
             <Image
-              src="https://react.semantic-ui.com/images/avatar/large/molly.png"
+              src={parrotIcon}
               size="small"
               float="right"
             />
