@@ -32,13 +32,7 @@ function Login(props) {
   }
 
   return (
-    <TransitionGroup
-    transitionName="intro"
-    transitionAppear={true}
-    transitionAppearTimeout={500}
-    transitionEnter={false}
-    transitionLeave={true}
-    >
+    <TransitionGroup>
     <div className="form-container">
       <Form onSubmit={onSubmit} noValidate className={loading ? 'loading' : ''}>
         <h1>Login</h1>

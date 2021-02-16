@@ -5,21 +5,23 @@ const typeDefs = require('./graphQL/typeDefs')
 const resolvers = require('./graphQL/resolvers')
 const { MONGODB } = require('./config.js')
 
-const PORT = process.env.port || 5000;
-
 const pubsub = new PubSub();
 
 const server = new ApolloServer({
         typeDefs,
         resolvers,
+        introspection: true,
         context: ({ req }) => ({ req, pubsub })
 });
 
-mongoose
-    .connect(MONGODB, { useNewUrlParser: true })
+mongoose.connect(MONGODB, { 
+    useNewUrlParser: true, 
+    useUnifiedTopology: true, 
+    useFindAndModify: true, 
+    useCreateIndex: true })
     .then(() => {
         console.log('MongoDB connected')
-        return server.listen({ port: PORT });
+        return server.listen(process.env.PORT || 5000);
     })
     .then((res) => {
             console.log(`Server running at ${res.url}`)

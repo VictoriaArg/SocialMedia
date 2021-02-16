@@ -1,14 +1,14 @@
 {
   "name": "socialmedia",
   "version": "1.0.0",
+  "engines": {
+    "node": "14.13.0"
+  },
   "description": "Created following FreeCodeCamp tutorial https://www.youtube.com/watch?v=n1mdAPFq2Os",
   "main": "index.js",
   "scripts": {
-    "build": "npm install --prefix client && npm run build --prefix client",
-    "serve": "node index",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev start": "nodemon index",
-    "start": "node ./index.js"
+  "dev": "nodemon ./index.js",
+  "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -41,6 +41,22 @@
   },
   "devDependencies": {
     "apollo-client": "^2.6.10",
-    "nodemon": "^2.0.6"
+    "nodemon": "^2.0.6",
+    "@apollo/react-hooks": "^4.0.0",
+    "apollo-boost": "^0.4.9",
+    "apollo-cache-inmemory": "^1.6.6",
+    "apollo-link-context": "^1.0.20",
+    "apollo-link-http": "^1.5.17",
+    "apollo-server": "^2.19.0",
+    "bcryptjs": "^2.4.3",
+    "graphql": "^15.4.0",
+    "jsonwebtoken": "^8.5.1",
+    "jwt-decode": "^3.1.2",
+    "moment": "^2.29.1",
+    "mongoose": "^5.11.4",
+    "react-router-dom": "^5.2.0",
+    "react-transition-group": "^1.2.1",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^2.0.2"
   }
 }

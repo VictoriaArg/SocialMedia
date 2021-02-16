@@ -11,13 +11,7 @@ function Intro () {
 
  return (
     <div style={{display:"flex", flexDirection:"column"}}>
-    <TransitionGroup
-      transitionName="intro"
-      transitionAppear={true}
-      transitionAppearTimeout={500}
-      transitionEnter={false}
-      transitionLeave={true}
-      >
+    <TransitionGroup>
     <div className='intro'>
      <div className='intro-description'>
         <div>

@@ -28,13 +28,7 @@ function Home () {
     }
 
     return (
-    <TransitionGroup
-    transitionName="intro"
-    transitionAppear={true}
-    transitionAppearTimeout={500}
-    transitionEnter={false}
-    transitionLeave={true}
-    >  
+    <TransitionGroup>  
     <Grid columns={3} divided>
         <Grid.Row className='page-title'>
             <h1>Recent Posts</h1>
