@@ -7,8 +7,8 @@
   "description": "Created following FreeCodeCamp tutorial https://www.youtube.com/watch?v=n1mdAPFq2Os",
   "main": "index.js",
   "scripts": {
-  "dev": "nodemon ./index.js",
-  "start": "node index.js"
+    "dev": "nodemon ./index.js",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -29,6 +29,7 @@
     "apollo-link-http": "^1.5.17",
     "apollo-server": "^2.19.0",
     "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
     "graphql": "^15.4.0",
     "jsonwebtoken": "^8.5.1",
     "jwt-decode": "^3.1.2",

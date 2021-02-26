@@ -1,17 +1,21 @@
 const { ApolloServer, PubSub } = require('apollo-server')
 const mongoose = require('mongoose')
 
-const typeDefs = require('./graphQL/typeDefs')
-const resolvers = require('./graphQL/resolvers')
+const typeDefs = require('./gql/typeDefs/typeDefs')
+const resolvers = require('./gql/resolvers')
 const { MONGODB } = require('./config.js')
+const cors = require('cors')
 
 const pubsub = new PubSub();
 
 const server = new ApolloServer({
         typeDefs,
         resolvers,
+        cors: true,
         context: ({ req }) => ({ req, pubsub })
 });
+
+
 
 
 mongoose.connect(MONGODB, { 

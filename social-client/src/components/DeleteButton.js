@@ -22,18 +22,27 @@ function DeleteButton({ postId, commentId, callback }){
         variables: { 
             postId
         },
-        update(proxy) {
-            setConfirmOpen(false);
-                const data = proxy.readQuery({
-                    query: FETCH_POSTS_QUERY
-                });
-                data.getPosts = data.getPosts.filter(p => p.id !== postId)
-                proxy.writeQuery({ query: FETCH_POSTS_QUERY, data})
-                if(callback) callback();
-                window.location.reload();
-                  
-        }
-    })
+        update(proxy, result) {
+            const data = proxy.readQuery({
+              query: FETCH_POSTS_QUERY,
+            });
+      
+            let newData = [...data.getPosts];
+            newData = [result.data.createPost, ...newData];
+            proxy.writeQuery({
+              query: FETCH_POSTS_QUERY,
+              data: {
+                ...data,
+                getPosts: {
+                  newData,
+                },
+              },
+            });
+          },
+          onError(err) {
+              return err;
+            }
+        });
 
     return (
         <>

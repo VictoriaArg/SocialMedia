@@ -12,12 +12,13 @@ function PostForm(){
         body: ''
     })
 
-    const [createPost, { error }] = useMutation(CREATE_POST_MUTATION, {
+    /* const [createPost, { error }] = useMutation(CREATE_POST_MUTATION, {
         variables: values,
         update(proxy, result) {
           const data = proxy.readQuery({
             query: FETCH_POSTS_QUERY,
           });
+          
           proxy.writeQuery({
             query: FETCH_POSTS_QUERY,
             data: {
@@ -29,6 +30,31 @@ function PostForm(){
         onError(err) {
           return err;
         },
+      }); */
+      
+      const [createPost, { error }] = useMutation(CREATE_POST_MUTATION, {
+        variables: values,
+        update(proxy, result) {
+          const data = proxy.readQuery({
+            query: FETCH_POSTS_QUERY,
+          });
+    
+          let newData = [...data.getPosts];
+          newData = [result.data.createPost, ...newData];
+          proxy.writeQuery({
+            query: FETCH_POSTS_QUERY,
+            data: {
+              ...data,
+              getPosts: {
+                newData,
+              },
+            },
+          });
+          values.body = '';
+        },
+        onError(err) {
+            return err;
+          }
       });
 
     function createPostCallback(){
