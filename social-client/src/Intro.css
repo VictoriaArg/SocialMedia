@@ -1,0 +1,75 @@
+.intro {
+  position: absolute;
+  left: 0;
+  width: 100vw;
+  height: 85vh;
+  min-height: 400px;
+  background-color: teal;
+  display: flex;
+  flex-direction: row;
+  padding: 4%;
+  padding-left: 10vw;
+  color: white;
+}
+
+.intro-appear {
+  opacity: 0.01;
+}
+
+.intro-appear.intro-appear-active {
+  opacity: 1;
+  transition: opacity 0.5s ease-in;
+}
+
+.intro-description {
+  display: flex;
+  flex-direction: column;
+  width: 55%;
+  height: 100%;
+}
+
+.intro-description h1 {
+  font-size: 2vw;
+}
+
+.intro-description h5 {
+  width: 70%;
+  font-size: 1.5vw;
+  font-weight: 200;
+  margin-top: 1vw;
+}
+
+.intro-description h2 {
+  margin-top: 2vw;
+  font-size: 2vw;
+}
+
+.vic {
+  text-decoration: underline;
+}
+
+.vic:visited {
+  color: white;
+}
+
+.vic:hover {
+  color: orange;
+}
+
+.intro-button {
+  margin-top: 2vw;
+}
+
+.parrot-background {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  border-radius: 50%;
+  background-color: white;
+  width: 30vw;
+  height: 30vw;
+  min-width: 150px;
+  min-height: 150px;
+  padding: 5vw;
+}
