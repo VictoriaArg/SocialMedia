@@ -10,7 +10,7 @@ import Footer from '../components/Footer'
 function Intro () {
 
  return (
-    <div style={{display:"flex", flexDirection:"column"}} >
+    <div>
     <TransitionGroup>
     <div className='intro'>
      <div className='intro-description'>
@@ -37,7 +37,7 @@ function Intro () {
             </Button>
             </div>
     </div>
-    <div className='parrot-background'>
+    <div className='parrot-background' id='logo'>
             <img src={Parrot} alt='Logo Parrot' />
     </div>
     </div>

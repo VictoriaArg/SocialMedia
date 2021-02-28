@@ -1,7 +1,7 @@
 .intro {
   position: absolute;
   left: 0;
-  width: 100vw;
+  width: 100vw !important;
   height: 85vh;
   min-height: 400px;
   background-color: teal;
@@ -24,7 +24,7 @@
 .intro-description {
   display: flex;
   flex-direction: column;
-  width: 55%;
+  width: 100%;
   height: 100%;
 }
 
@@ -67,9 +67,42 @@
   align-content: center;
   border-radius: 50%;
   background-color: white;
-  width: 30vw;
+  width: 40vw;
   height: 30vw;
-  min-width: 150px;
-  min-height: 150px;
   padding: 5vw;
+}
+
+@media only screen and (max-width: 425px) {
+  .intro {
+    height: 85vh !important;
+  }
+
+  .intro-description {
+    margin-top: 4vh;
+  }
+  .intro-description h1 {
+    font-size: 3vh;
+  }
+
+  .intro-description h2 {
+    margin-top: 1vw;
+    font-size: 6vw;
+  }
+
+  .intro-description h5 {
+    width: 100%;
+    font-size: 3vh;
+    font-weight: 200;
+    margin-bottom: 5vw;
+  }
+
+  .parrot-background {
+    position: absolute;
+    margin-left: 55%;
+    margin-top: 2%;
+    max-width: 150px;
+    max-height: 150px;
+    width: 30vw;
+    height: 30vw;
+  }
 }

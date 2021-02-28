@@ -12,12 +12,13 @@
 }
 
 .tech {
-  margin-right: 40%;
+  width: 50%;
   color: rgb(59, 59, 59);
 }
 
 .tech h3 {
-  padding-left: 7%;
+  padding-left: 2%;
+  font-size: 3vh;
 }
 
 .tech-col {
@@ -31,7 +32,7 @@
 .tech-col img {
   background-color: white;
   border-radius: 50%;
-  padding: 3%;
+  padding: 0.5%;
 }
 
 .tech-col img:hover {
@@ -40,11 +41,17 @@
 }
 
 .feat {
-  margin-right: 2%;
+  margin-right: 5%;
   color: rgb(59, 59, 59);
+  font-size: 2.5vh;
 }
 .feat h3 {
-  padding-left: 12%;
+  font-size: 3vh;
+  padding-left: 4%;
+}
+
+.feat ul li {
+  padding-bottom: 1vh;
 }
 
 .feat ul li:hover {
@@ -52,12 +59,62 @@
 }
 
 .coming {
+  font-size: large;
   color: rgb(59, 59, 59);
+  font-size: 2.5vh;
 }
 .coming h3 {
-  padding-left: 7.5%;
+  font-size: 3vh;
+  padding-left: 2%;
+}
+
+.coming ul li {
+  padding-bottom: 1vh;
 }
 
 .coming ul li:hover {
   color: teal;
+}
+
+@media only screen and (max-width: 425px) {
+  .footer-big {
+    position: absolute;
+    left: 0;
+    margin-top: 85vh;
+    width: 100%;
+    height: 120vh;
+    padding: 4vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .tech {
+    width: 100%;
+  }
+
+  .tech-col img {
+    background-color: white;
+    border-radius: 50%;
+    padding: 1.5%;
+    margin-left: 1.5%;
+  }
+
+  .tech h3 {
+    padding-left: 2%;
+  }
+
+  .tech-col {
+    margin-top: 2vw;
+  }
+
+  .feat h3 {
+    margin-top: 3vh;
+    padding-left: 2%;
+  }
+
+  .coming h3 {
+    margin-top: 3vh;
+    padding-left: 2%;
+    padding-bottom: 2%;
+  }
 }
