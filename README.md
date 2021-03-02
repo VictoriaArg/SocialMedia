@@ -3,7 +3,7 @@ Parrot es un proyecto personal hecho específicamente para aprender a usar Graph
 Se trata de una app de posts estilo Twitter, pero con la idea a futuro de generar comunidades privadas para compartir posts con grupos familiares o de amigos.
 Similar a lo quee pasa en Whatsapp con los grupos de amigos y familia, pero con la dinámica de Twitter.
 
---> Próximamente link del proyecto
+--> https://parrot-family.netlify.app/
 
 ## Tecnologias utilizadas en el desarrollo
  
