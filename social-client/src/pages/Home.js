@@ -16,11 +16,24 @@ function Home () {
 
     const [posts, setPosts] = useState('')
     const { data, loading, error } = useQuery(FETCH_POSTS_QUERY);
-   
+    
+    const [width, setWidth] = useState(0);
+    const [numberColumns, setNumberColumns] = useState(3)
+
     useEffect(() => {
         if (data) setPosts(data.getPosts)
             /* console.log(posts)  */
-        }, [data]) 
+        
+        let actualWidth = document.documentElement.clientWidth
+        setWidth(actualWidth)
+    
+        if (width < 430) {
+            setNumberColumns(1)
+         } else {
+            setNumberColumns(3)
+        }
+    
+        }, [data, width]) 
     
     if(error) {
       console.log(error);
@@ -29,7 +42,7 @@ function Home () {
 
     return (
     <TransitionGroup>  
-    <Grid columns={3} divided>
+    <Grid columns={numberColumns} divided>
         <Grid.Row className='page-title'>
             <h1>Recent Posts</h1>
         </Grid.Row>
